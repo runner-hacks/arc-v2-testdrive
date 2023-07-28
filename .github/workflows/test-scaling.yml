@@ -1,0 +1,23 @@
+name: Test ARC Scaling
+on:
+  workflow_dispatch:
+    inputs:
+      job_length:
+        description: 'Length of job in seconds'
+        type: number
+        default: '180'   
+      runs_on:
+        type: string
+        description: Runner Label to Run the Job
+        default: arc-1
+jobs: 
+  concurrent_jobs:
+    runs-on: ${{ inputs.runs_on }}
+    strategy:
+      matrix:
+        foo: [ 1, 2, 3, 4 ]
+        bar: [ 1, 2, 3, 4, 5 ]
+      max-parallel: 20
+    steps:
+      - name: Run slow command
+        run: sleep "${{ github.event.inputs.job_length }}"
