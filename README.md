@@ -1,6 +1,6 @@
 # arc-v2-testdrive
 
-Code, configuration, and docs to deploy self-hosted runners [actions-runner-controller v2](https://github.com/actions/actions-runner-controller).
+Code, configuration, and docs to deploy self-hosted runners with [actions-runner-controller v2](https://github.com/actions/actions-runner-controller).
 
 
 ## Resources
