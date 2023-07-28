@@ -11,7 +11,6 @@ Code, configuration, and docs to deploy self-hosted runners with [actions-runner
 - [ScaleSet images](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set)
 - [CodeSpaces Overview](https://docs.github.com/en/codespaces/getting-started/deep-dive)
 - [Collaborating with CodeSpaces](https://docs.github.com/en/codespaces/developing-in-codespaces/working-collaboratively-in-a-codespace)
-- 
 
 ## Deployment Process
 
