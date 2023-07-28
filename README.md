@@ -37,10 +37,21 @@ kubectl logs <arc-controller-pod> -n arc-system
 
 ### 3. Runner ScaleSet preparation
 
-```sh
-# create github-app
-TBA
+Create GitHub App:
 
+![image](https://github.com/runner-hacks/arc-v2-testdrive/assets/12085451/e0d88fe1-be3e-4599-bea2-b41e05222e23)
+![image](https://github.com/runner-hacks/arc-v2-testdrive/assets/12085451/566c1acc-7a02-4236-a6f8-7620300985be)
+
+![image](https://github.com/runner-hacks/arc-v2-testdrive/assets/12085451/368b6e5c-733e-4096-9eef-8f079f36b2ab)
+![image](https://github.com/runner-hacks/arc-v2-testdrive/assets/12085451/4f59df6a-a28e-4af8-8313-112e8ab26a07)
+
+> No webhook value is required - ARC v2 does not use webhook-driven scaling
+
+Install into organization for runners:
+
+![image](https://github.com/runner-hacks/arc-v2-testdrive/assets/12085451/ddebe1b5-11d0-4015-8048-887c1399fbb1)
+
+```sh
 # create namespace for runners
 kubectl create namespace arc-runners
 
