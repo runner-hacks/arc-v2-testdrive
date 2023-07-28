@@ -101,4 +101,4 @@ flags:
   ##   pending / running jobs have completed.
   ##   This can lead to a longer time to apply the change but it will ensure
   ##   that you don't have any overprovisioning of runners.
-  updateStrategy: "immediate"
+  updateStrategy: "eventual"
