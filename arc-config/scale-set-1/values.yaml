@@ -1,6 +1,6 @@
 ## githubConfigUrl is the GitHub url for where you want to configure runners
 ## ex: https://github.com/myorg/myrepo or https://github.com/myorg
-githubConfigUrl: ""
+githubConfigUrl: "https://github.com/runner-hacks"
 
 ## githubConfigSecret is the k8s secrets to use when auth with GitHub API.
 ## You can choose to use GitHub App or a PAT token
@@ -12,7 +12,7 @@ githubConfigSecret:
   #github_app_private_key: |
 
   ### GitHub PAT Configuration
-  github_token: ""
+  #github_token: ""
 ## If you have a pre-define Kubernetes secret in the same namespace the gha-runner-scale-set is going to deploy,
 ## you can also reference it via `githubConfigSecret: pre-defined-secret`.
 ## You need to make sure your predefined secret has all the required secret data set properly.
@@ -20,7 +20,7 @@ githubConfigSecret:
 ##   > kubectl create secret generic pre-defined-secret --namespace=my_namespace --from-literal=github_token='ghp_your_pat'
 ##   For a pre-defined secret using GitHub App, the secret needs to be created like this:
 ##   > kubectl create secret generic pre-defined-secret --namespace=my_namespace --from-literal=github_app_id=123456 --from-literal=github_app_installation_id=654321 --from-literal=github_app_private_key='-----BEGIN CERTIFICATE-----*******'
-# githubConfigSecret: pre-defined-secret
+ githubConfigSecret: github-app
 
 ## proxy can be used to define proxy settings that will be used by the
 ## controller, the listener and the runner of this scale set.
@@ -37,15 +37,15 @@ githubConfigSecret:
 #     - example.org
 
 ## maxRunners is the max number of runners the auto scaling runner set will scale up to.
-# maxRunners: 5
+maxRunners: 10
 
 ## minRunners is the min number of runners the auto scaling runner set will scale down to.
-# minRunners: 0
+minRunners: 0
 
-# runnerGroup: "default"
+runnerGroup: "default"
 
 ## name of the runner scale set to create.  Defaults to the helm release name
-# runnerScaleSetName: ""
+runnerScaleSetName: "arc-1"
 
 ## A self-signed CA certificate for communication with the GitHub server can be
 ## provided using a config map key selector. If `runnerMountPath` is set, for
@@ -68,8 +68,8 @@ githubConfigSecret:
 #       key: ca.crt
 #   runnerMountPath: /usr/local/share/ca-certificates/
 
-# containerMode:
-#   type: "dind"  ## type can be set to dind or kubernetes
+containerMode:
+  type: "dind"  ## type can be set to dind or kubernetes
 #   ## the following is required when containerMode.type=kubernetes
 #   kubernetesModeWorkVolumeClaim:
 #     accessModes: ["ReadWriteOnce"]
@@ -158,7 +158,7 @@ template:
   spec:
     containers:
     - name: runner
-      image: ghcr.io/actions/actions-runner:latest
+      image: ghcr.io/actions/actions-runner:2.307.1
       command: ["/home/runner/run.sh"]
 
 ## Optional controller service account that needs to have required Role and RoleBinding
