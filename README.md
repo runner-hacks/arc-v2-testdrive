@@ -19,7 +19,8 @@ TBA
 ### 2. Deploy ARC Controller helm chart
 
 ```sh
-# configure gha-runner-scale-set-controller helm chart values
+# configure gha-runner-scale-set-controller helm chart values from:
+# https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set-controller/values.yaml
 TBA
 
 # install gha-runner-scale-set-controller
@@ -54,7 +55,8 @@ kubectl create secret generic github-app \
 ### 4. Deploy Runner ScaleSet
 
 ```sh
-# configure gha-runner-scale-set helm chart values
+# configure gha-runner-scale-set helm chart values from:
+# https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml
 
 # install gha-runner-scale-set
 helm install scale-set-1 --namespace arc-runners \
