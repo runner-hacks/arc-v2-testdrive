@@ -7,8 +7,11 @@ Code, configuration, and docs to deploy self-hosted runners with [actions-runner
 - [ARC v2 repo](https://github.com/actions/actions-runner-controller)
 - [ARC v2 deep-dive (video)](https://www.youtube.com/watch?v=_F5ocPrv6io&list=PLArH6NjfKsUhvGHrpag7SuPumMzQRhUKY)
 - [ARC v2 docs](https://gh.io/arc-docs)
-- [controller images](charts/gha-runner-scale-set-controller/values.yaml)
-
+- [Controller images](charts/gha-runner-scale-set-controller/values.yaml)
+- [ScaleSet images](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set)
+- [CodeSpaces Overview](https://docs.github.com/en/codespaces/getting-started/deep-dive)
+- [Collaborating with CodeSpaces](https://docs.github.com/en/codespaces/developing-in-codespaces/working-collaboratively-in-a-codespace)
+- 
 
 ## Deployment Process
 
@@ -34,6 +37,7 @@ helm install arc --namespace arc-system \
 kubectl get pods -n arc-system
 kubectl logs <arc-controller-pod> -n arc-system
 ```
+
 
 ### 3. Runner ScaleSet preparation
 
@@ -62,6 +66,7 @@ kubectl create secret generic github-app \
     --from-literal=github_app_installation_id=<installation-id> \
     --from-literal=github_app_private_key='<app-private-key-value>'
 ```
+
 
 ### 4. Deploy Runner ScaleSet
 
